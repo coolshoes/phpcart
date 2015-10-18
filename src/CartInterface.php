@@ -19,7 +19,7 @@ interface CartInterface
 
 	public function has($id);
 
-	public function clear();
+	public function flash();
 
 	public function totalQuantity();
 

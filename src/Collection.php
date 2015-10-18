@@ -22,7 +22,8 @@ class Collection extends IlluminateCollection
         'id',
         'name',
         'price',
-        'quantity'
+        'quantity',
+        'weight',
     ];
 
     public function setItems(array $items)

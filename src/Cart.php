@@ -63,7 +63,7 @@ class Cart implements CartInterface
      * Set the current cart name
      *
      * @param  string  $instance  Cart instance name
-     * @return \Anam\Phpcart\Cart
+     * @return StudentVIP\Cart
      */
     public function named($name)
     {
@@ -163,8 +163,8 @@ class Cart implements CartInterface
     /**
      * Remove an item from the cart.
      *
-     * @param  mixed $id
-     * @return \Anam\Phpcart\Collection
+     * @param  int $id
+     * @return $this
      */
     public function remove($id)
     {
@@ -250,6 +250,24 @@ class Cart implements CartInterface
         });
     }
 
+
+    /**
+     * Get the total weight
+     *
+     * @return int
+     */
+
+    public function getTotalWeight()
+    {
+        $items = $this->getItems();
+
+        return $items->sum(function($item) {
+            return $item->weight;
+        });
+    }
+
+
+
     /**
      * Get the total quantities of items in the cart
      *
@@ -264,6 +282,7 @@ class Cart implements CartInterface
             return $item->quantity;
         });
     }
+
 
     /**
      * Clone a cart to another
